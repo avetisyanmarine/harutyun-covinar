@@ -6,6 +6,7 @@ import './index.css';
 import { preloadFonts } from './fontLoader.js';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import './languages/i18n.js'
 
 preloadFonts()
 

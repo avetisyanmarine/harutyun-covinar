@@ -14,25 +14,25 @@ export const ThirdPage = () => {
   return (
     <ThirdPagePart>
       <Container>
-        <h2>Ծրագիր</h2>
+        <h2 style={{marginBottom: "40px"}}>Ծրագիր</h2>
         <ThirdPagePartContext>
           <ThirdPageBlock
-            imageSize={0}
-            ImageSrc={null}
+            imageSize={80}
+            ImageSrc={Haverjutyun}
             number={"13:00"}
             bigText="ՓԵՍԱՅԻ ՏՈՒՆ"
-            smallText="գ․ Մուսալեռ Տիգրան Մեծ 19/2"
+            smallText="Այստեղ կարող է լինել Ձեր հասցեն"
           />
           <ThirdPageBlock
-            uniqueMargin={50}
-            imageSize={147}
+            // uniqueMargin={50}
+            imageSize={80}
             ImageSrc={Haverjutyun}
             number={"13:30"}
             bigText="ՀԱՐՍԻ ՏՈՒՆ"
-            smallText="ք․ Էջմիածին, Չարենց 4/37"
+            smallText="Այստեղ կարող է լինել Ձեր հասցեն"
           />
           <ThirdPageBlock
-            imageSize={114}
+            imageSize={80}
             ImageSrc={Church}
             number={"14:30"}
             bigText="ՊՍԱԿԱԴՐՈՒԹՅՈՒՆ"
@@ -41,14 +41,14 @@ export const ThirdPage = () => {
           <ThirdPageBlock
             line={true}
             ImageSrc={Kenac}
-            imageSize={159}
+            imageSize={80}
             number={"17:30"}
             bigText="ՀԱՐՍԱՆՅԱՑ ՀԱՆԴԻՍՈՒԹՅՈՒՆ"
             smallText="Նոր Դվին Ռեստորան"
           />
         </ThirdPagePartContext>
         <ThirdPagePartMini>
-          <h3>Սիրով սպասում ենք</h3>
+          {/* <h3>Սիրով սպասում ենք</h3> */}
           <hr />
         </ThirdPagePartMini>
       </Container>
