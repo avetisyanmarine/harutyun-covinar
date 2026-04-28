@@ -38,6 +38,12 @@ export const ThirdPage = () => {
             smallText={t('church_name')}
           />
           <ThirdPageBlock
+            imageSize={80}
+            ImageSrc={Haverjutyun}
+            number={"15:30"}
+            bigText={t('groom_house')}
+          />
+          <ThirdPageBlock
             line={true}
             ImageSrc={Kenac}
             imageSize={80}
