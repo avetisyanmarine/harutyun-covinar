@@ -1,6 +1,5 @@
 import {
   ThirdPagePart,
-  ThirdPagePartCalendar,
   ThirdPagePartContext,
   ThirdPagePartMini,
 } from "./styled";
@@ -9,46 +8,45 @@ import Haverjutyun from "../../assets/image/haverjutyun.png";
 import Church from "../../assets/image/church.png";
 import Kenac from "../../assets/image/kenac.png";
 import { ThirdPageBlock } from "./third-page-block";
+import { useTranslation } from "react-i18next";
 
 export const ThirdPage = () => {
+  const { t } = useTranslation();
+
   return (
     <ThirdPagePart>
       <Container>
-        <h2 style={{marginBottom: "40px"}}>Ծրագիր</h2>
+        <h2 style={{ marginBottom: "40px" }}>{t('program_title')}</h2>
         <ThirdPagePartContext>
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Haverjutyun}
-            number={"13:00"}
-            bigText="ՓԵՍԱՅԻ ՏՈՒՆ"
-            smallText="Այստեղ կարող է լինել Ձեր հասցեն"
+            number={"11:00"}
+            bigText={t('groom_house')}
           />
           <ThirdPageBlock
-            // uniqueMargin={50}
             imageSize={80}
             ImageSrc={Haverjutyun}
-            number={"13:30"}
-            bigText="ՀԱՐՍԻ ՏՈՒՆ"
-            smallText="Այստեղ կարող է լինել Ձեր հասցեն"
+            number={"12:30"}
+            bigText={t('bride_house')}
           />
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Church}
             number={"14:30"}
-            bigText="ՊՍԱԿԱԴՐՈՒԹՅՈՒՆ"
-            smallText="Սուրբ Գայանե եկեղեցի"
+            bigText={t('church_ceremony')}
+            smallText={t('church_name')}
           />
           <ThirdPageBlock
             line={true}
             ImageSrc={Kenac}
             imageSize={80}
-            number={"17:30"}
-            bigText="ՀԱՐՍԱՆՅԱՑ ՀԱՆԴԻՍՈՒԹՅՈՒՆ"
-            smallText="Նոր Դվին Ռեստորան"
+            number={"18:00"}
+            bigText={t('wedding_party')}
+            smallText={t('restaurant_name')}
           />
         </ThirdPagePartContext>
         <ThirdPagePartMini>
-          {/* <h3>Սիրով սպասում ենք</h3> */}
           <hr />
         </ThirdPagePartMini>
       </Container>

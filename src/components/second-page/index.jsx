@@ -1,22 +1,21 @@
 import { SecondPagePart, GridDiv } from "./styled";
 import { Container, Flexible } from "../../GlobalStyle";
 import { useEffect, useState } from "react";
-import Photo2 from "../../assets/image/savethedate.png";
 import BlockImage from "../../assets/image/blockimage.jpg";
 import PhotoF1 from "../../assets/image/photof1.jpg";
-import PhotoGroup1 from "../../assets/image/groupphoto1.jpg";
-import PhotoGroup2 from "../../assets/image/groupphoto2.jpg";
-import PhotoGroup3 from "../../assets/image/groupphoto3.jpg";
 import LineAes from "../../assets/image/lineaes.png";
 import { ThirdPagePartCalendar } from "../third-page/styled";
+import { useTranslation } from "react-i18next";
 
 export const SecondPage = () => {
-  const weddingDate = new Date(2026, 3, 26, 0, 0, 0);
+  const { t } = useTranslation();
+  
+  // Հիշեցում. JavaScript-ում ամիսները սկսվում են 0-ից (8-ը Սեպտեմբերն է, 5-ը՝ Հունիսը)
+  const weddingDate = new Date(2026, 8, 9, 0, 0, 0);
 
   const calculateTimeLeft = () => {
     const now = new Date();
     const diff = weddingDate - now;
-
     if (diff <= 0) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
@@ -35,7 +34,6 @@ export const SecondPage = () => {
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -46,37 +44,24 @@ export const SecondPage = () => {
       <Container>
         <div>
           <h2 className="mb-10" data-aos="zoom-in">
-            Հարսանիքին մնաց
+            {t('timer_title')}
           </h2>
           <GridDiv>
             <Flexible data-aos="flip-up">
               <h2>{formatNumber(timeLeft.days)}</h2>
-              <p>Օր</p>
+              <p>{t('days')}</p>
             </Flexible>
-            <Flexible
-              data-aos="flip-up"
-              data-aos-duration="900"
-              data-aos-delay="450"
-            >
+            <Flexible data-aos="flip-up" data-aos-duration="900" data-aos-delay="450">
               <h2>{formatNumber(timeLeft.hours)}</h2>
-              <p>Ժամ</p>
+              <p>{t('hours')}</p>
             </Flexible>
-            <Flexible
-              data-aos="flip-up"
-              data-aos-duration="900"
-              data-aos-delay="600"
-            >
+            <Flexible data-aos="flip-up" data-aos-duration="900" data-aos-delay="600">
               <h2>{formatNumber(timeLeft.minutes)}</h2>
-              <p>Րոպե</p>
+              <p>{t('minutes')}</p>
             </Flexible>
-            <Flexible
-              className="uniqueBorder"
-              data-aos="flip-up"
-              data-aos-duration="900"
-              data-aos-delay="750"
-            >
+            <Flexible className="uniqueBorder" data-aos="flip-up" data-aos-duration="900" data-aos-delay="750">
               <h2>{formatNumber(timeLeft.seconds)}</h2>
-              <p>Վրկ</p>
+              <p>{t('seconds')}</p>
             </Flexible>
           </GridDiv>
         </div>
@@ -87,37 +72,27 @@ export const SecondPage = () => {
           data-aos-duration="600"
         >
           <img src={BlockImage} className="mt-[6px]" alt="" />
-          <p className="font-[600]">
-            Սերը հանդուրժող է, <br />
-            սերը բարի է<p className="mt-4">— Ա Կորնթացիներ 13:4</p>
-          </p>
+          <div className="font-[600] text-center">
+            <p>{t('quote')}</p>
+            <p className="mt-4">{t('quote_source')}</p>
+          </div>
         </div>
       </Container>
+
       <Container>
-        <div className="flex h-[100vh] my-11 gap-[20px]">
-          <div>
-            <img src={Photo2} className="h-[100vh]" />
-          </div>
-          <div className="flex flex-col gap-2">
-            <img src={PhotoGroup1} alt="" className="h-1/3 object-cover" />
-            <img src={PhotoGroup2} alt="" className="h-1/3 object-cover" />
-            <img src={PhotoGroup3} alt="" className="h-1/3 object-cover" />
-          </div>
-        </div>
         <div className="mt-10 mb-7">
-          <h2 className="mb-10">Սիրելի հյուրեր</h2>
+          <h2 className="mb-10">{t('guests_title')}</h2>
           <Flexible className="font-[600]">
-            <p>
-              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց հանդիսությանը
-              և կիսելու մեր ուրախությունը։
-            </p>
+            <p>{t('invitation_text')}</p>
           </Flexible>
         </div>
       </Container>
+
       <img src={LineAes} alt="" className="w-full" />
+
       <Container>
         <h2 className="mt-5" data-aos="zoom-in">
-          Հունիս
+          {t('month_name')}
         </h2>
         <ThirdPagePartCalendar
           data-aos="fade-up"
@@ -125,23 +100,23 @@ export const SecondPage = () => {
           data-aos-delay="300"
           className="mt-15"
         >
-          {["Երկ", "Երք", "Չրք", "Հնգ", "Ուրբ", "Շբթ", "Կիր"].map((day) => (
-            <div
-              className="font-bold text-center py-2 mb-3"
-              style={{ fontSize: "16px" }}
-            >
+          {/* Շաբաթվա օրերը JSON զանգվածից */}
+          {t('week_days', { returnObjects: true }).map((day, index) => (
+            <div key={index} className="font-bold text-center py-2 mb-3" style={{ fontSize: "16px" }}>
               {day}
             </div>
           ))}
+          
           {[...Array(37)].map((_, i) =>
-            i > 5 && i <= 36 ? (
-              <div className={i - 5 == 1 ? "special" : ""}>{i - 5}</div>
+            i > 0 && i <= 30 ? (
+              // Նշում ենք ամսի 9-ը որպես հատուկ օր
+              <div key={i} className={i == 9 ? "special" : ""}>{i}</div>
             ) : (
-              <div className=""></div>
-            ),
+              <div key={i}></div>
+            )
           )}
         </ThirdPagePartCalendar>
-        <img src={PhotoF1} alt="" className="rounded-[15px] mt-[50px]" />
+        <img src={PhotoF1} alt="" className="rounded-[15px] mt-[50px] grayscale" />
       </Container>
     </SecondPagePart>
   );

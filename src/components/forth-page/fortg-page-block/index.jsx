@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Flexible } from "../../../GlobalStyle";
 import { ForthPageBlockPart } from "./styled";
 export const ForthPageBlock = ({ ImageSrc, bigText, mapSrc }) => {
+  const {t} = useTranslation();
   return (
     <>
       <ForthPageBlockPart>
@@ -31,7 +33,7 @@ export const ForthPageBlock = ({ ImageSrc, bigText, mapSrc }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Քարտեզ
+            {t('view_on_map')}
           </a>
         </Flexible>
       </ForthPageBlockPart>

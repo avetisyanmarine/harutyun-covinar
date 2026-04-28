@@ -12,14 +12,13 @@ const FirstPagePart = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: none;
   }
 `;
 const FirstPagePartContext = styled.div`
   position: absolute;
   left: 0;
   width: 100%;
-  top: 0;
+  top: 4vh;
   height: 100%;
 
   .maintext {
@@ -31,7 +30,7 @@ const FirstPagePartContext = styled.div`
       font-size: 16px;
     }
     h3 {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
   h2 {

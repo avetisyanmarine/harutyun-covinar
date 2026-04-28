@@ -17,7 +17,7 @@ const GridDiv = styled(Flexible)`
     border-right: 2px solid #1e1e1e;
     padding: 4px 20px;
     p {
-      font-size: 23px;
+      font-size: 20px;
       line-height: 12px;
     }
   }

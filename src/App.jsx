@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { BackToTop } from "./components/top-button";
 import { useTranslation } from "react-i18next";
-import { LanguageSwitcher } from "./languages/LanguageSwitcher"
+import { LanguageSwitcher } from "./languages/LanguageSwitcher";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -21,7 +21,6 @@ function App() {
       easing: "ease-in-out",
     });
 
-    // Սա շատ կարևոր է React-ի համար. թարմացնում է AOS-ը բեռնվելուց հետո
     setTimeout(() => {
       AOS.refresh();
     }, 500);
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <>
-    <LanguageSwitcher />
+      <LanguageSwitcher />
       <MusicPage />
       <FirstPage />
       <SecondPage />
