@@ -199,9 +199,7 @@ const AttendanceGuests = () => {
 
         <FormGroup>
           <Label htmlFor="comment">
-            <h4>
-              <span>💬</span> {t("comment")}
-            </h4>
+            <h4>{t("comment")}</h4>
           </Label>
           <TextArea
             id="comment"
