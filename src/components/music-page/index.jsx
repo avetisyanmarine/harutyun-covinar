@@ -2,12 +2,13 @@ import { MusicPagePart } from "./styled";
 import Music from "../../assets/vectors/music.png";
 import Song from "../../assets/audio/song.mp3";
 import { useRef, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export const MusicPage = () => {
   const audioRef = useRef(null);
   const [showTip, setShowTip] = useState(true);
   const [isFading, setIsFading] = useState(false);
-
+  const { t } = useTranslation();
   const hideTip = () => {
     setIsFading(true);
     setTimeout(() => setShowTip(false), 350);
@@ -35,7 +36,7 @@ export const MusicPage = () => {
           onClick={handleClick}
           className={`tip ${isFading ? "fade-out" : ""}`}
         >
-          Սեղմեք այստեղ
+          {t("click_here")}{" "}
         </div>
       )}
     </MusicPagePart>
