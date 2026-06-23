@@ -21,26 +21,26 @@ export const ThirdPage = () => {
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Haverjutyun}
-            number={"11:00"}
+            number={"10:30"}
             bigText={t('groom_house')}
           />
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Haverjutyun}
-            number={"12:30"}
+            number={"12:00"}
             bigText={t('bride_house')}
           />
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Church}
-            number={"14:30"}
+            number={"16:00"}
             bigText={t('church_ceremony')}
             smallText={t('church_name')}
           />
           <ThirdPageBlock
             imageSize={80}
             ImageSrc={Haverjutyun}
-            number={"16:30"}
+            number={"17:30-18:00"}
             bigText={t('groom_house')}
           />
           <ThirdPageBlock
